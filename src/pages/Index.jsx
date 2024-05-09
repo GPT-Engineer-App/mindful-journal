@@ -1,5 +1,6 @@
 import { Container, VStack, Heading, Text, Button, Image, useColorMode, useColorModeValue, IconButton } from "@chakra-ui/react";
 import { FaSun, FaMoon, FaBookOpen } from "react-icons/fa";
+import Gallery from '../components/Gallery';
 
 const Index = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -30,6 +31,7 @@ const Index = () => {
             Start Journaling Today
           </Button>
         </VStack>
+        <Gallery />
       </VStack>
     </Container>
   );
