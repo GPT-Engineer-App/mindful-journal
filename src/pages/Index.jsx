@@ -1,17 +1,23 @@
-import { Container, VStack, Heading, Text, Button, Image, useColorMode, useColorModeValue, IconButton } from "@chakra-ui/react";
+import { Container, VStack, Heading, Text, Button, Image, useColorMode, useColorModeValue, IconButton, Select } from "@chakra-ui/react";
 import { FaSun, FaMoon, FaBookOpen } from "react-icons/fa";
-import Gallery from '../components/Gallery';
+import { useState } from "react";
+import Gallery from "../components/Gallery";
 
 const Index = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const bgColor = useColorModeValue("gray.50", "gray.800");
   const textColor = useColorModeValue("gray.800", "gray.50");
+  const [language, setLanguage] = useState("en");
 
   return (
     <Container maxW="container.md" p={4} centerContent>
       <VStack spacing={8} align="stretch">
         <VStack>
           <IconButton aria-label="Toggle theme" icon={colorMode === "light" ? <FaMoon /> : <FaSun />} onClick={toggleColorMode} size="md" alignSelf="flex-end" />
+          <Select value={language} onChange={(e) => setLanguage(e.target.value)} width="100px" alignSelf="flex-end">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+          </Select>
           <Heading as="h1" size="2xl" textAlign="center">
             Journaling for Mental Health
           </Heading>
@@ -31,7 +37,7 @@ const Index = () => {
             Start Journaling Today
           </Button>
         </VStack>
-        <Gallery />
+        <Gallery language={language} />
       </VStack>
     </Container>
   );
