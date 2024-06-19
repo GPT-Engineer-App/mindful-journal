@@ -6,7 +6,7 @@ import Navigation from "./components/Navigation.jsx";
 function App() {
   return (
     <Router>
-      <Navigation />
+      {window.location.pathname !== "/" && <Navigation />}
       <Routes>
         <Route path="/article/:id" element={<FullArticle />} />
         <Route exact path="/" element={<Index />} />
