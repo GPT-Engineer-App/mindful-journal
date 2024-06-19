@@ -21,6 +21,16 @@ const Navigation = () => {
             Article 2
           </Button>
         </Link>
+        <Link to="/article/3">
+          <Button colorScheme="teal" variant="ghost">
+            Article 3
+          </Button>
+        </Link>
+        <Link to="/gallery">
+          <Button colorScheme="teal" variant="ghost">
+            Gallery
+          </Button>
+        </Link>
       </Flex>
     </Box>
   );
