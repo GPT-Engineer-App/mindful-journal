@@ -1,4 +1,5 @@
-import { VStack, Box, Text } from "@chakra-ui/react";
+import { VStack, Box, Text, Link } from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
 
 const Gallery = ({ language }) => {
   const articles = [
@@ -46,9 +47,9 @@ const Gallery = ({ language }) => {
     <VStack spacing={5} align="stretch">
       {articles.map((article) => (
         <Box key={article.id} boxShadow="md" p="5" rounded="md" bg="gray.100">
-          <Text fontSize="xl" fontWeight="bold">
+          <Link as={RouterLink} to={`/article/${article.id}`} fontSize="xl" fontWeight="bold">
             {article.title[language]}
-          </Text>
+          </Link>
           <Text mt="2">{article.summary[language]}</Text>
         </Box>
       ))}
